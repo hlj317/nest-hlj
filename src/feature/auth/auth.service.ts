@@ -1,0 +1,13 @@
+import { Injectable } from '@nestjs/common';
+import { UserService } from '../../user/user.service';
+
+@Injectable()
+export class AuthService {
+    constructor(
+        private readonly userService: UserService,
+    ){}
+    getAdmin(): string {
+        const name = this.userService.getName();
+        return '恭喜进入后台！' + name;
+    }
+}

@@ -6,6 +6,6 @@ export class AppService {
     return 'Hello hlj!';
   }
   getAdmin(): string {
-    return '恭喜进入后台！';
+    return '恭喜进入后台！' + name;
   }
 }
