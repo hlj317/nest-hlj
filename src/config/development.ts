@@ -5,11 +5,11 @@ export default {
     // 数据库配置
     DATABASE_CONFIG: {
         type: 'mysql',
-        host: 'localhost',
+        host: 'rm-bp1105f7q5o9ed6hk.mysql.rds.aliyuncs.com',
         port: 3306,
-        username: 'root',
-        password: '123456',
-        database: 'beibei_wxmp',
+        username: 'hlj317',
+        password: 'Xhym0821',
+        database: 'nest',
         timezone: 'UTC',
         charset: 'utf8mb4',
         synchronize: true,
