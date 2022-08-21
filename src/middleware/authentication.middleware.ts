@@ -15,6 +15,7 @@ export class AuthenticationMiddleware implements NestMiddleware {
           )}, ip: ${req.ip}, statusCode: ${res.statusCode} }`;
         
         console.log("####log:"+logFormat);
+        console.log("####env:"+process.env.NODE_ENV);
 
         next();
     }
