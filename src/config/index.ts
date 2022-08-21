@@ -6,6 +6,6 @@ const configs = {
     production: productionConfig,
 };
 console.log("****$$$$:"+process.env.NODE_ENV);
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'production';
 
 export default () => configs[env];
