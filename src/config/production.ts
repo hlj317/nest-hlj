@@ -20,7 +20,7 @@ export default {
     REDIS_CONFIG: {
         store: redisStore,
         port: 6379,
-        host: 'localhost',
+        host: 'r-bp1x6v6vqjb07teb43.redis.rds.aliyuncs.com',
         ttl: 60 * 60 * 24 * 30
     }
 };

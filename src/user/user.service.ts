@@ -7,12 +7,12 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { PageDto } from './dto/page.dto';
 import { PageResultDto } from "./dto/page-result.dto";
 import { FilterDto } from './dto/filter.dto';
-// import { RedisCacheService } from '../cache/redisCache.service';
+import { RedisCacheService } from '../cache/redisCache.service';
 
 @Injectable()
 export class UserService {
   constructor(
-    // private readonly redisCacheService: RedisCacheService,
+    private readonly redisCacheService: RedisCacheService,
     @InjectRepository(User) private userRepository: Repository<User>
   ) {}
 
@@ -21,7 +21,7 @@ export class UserService {
     createUserDto.isDelete = 0;
     createUserDto.sex = 0;
     //把数据先写入到redis中
-    // await this.redisCacheService.set("myname",createUserDto.name);
+    await this.redisCacheService.set("myname",createUserDto.name);
     const _data = await this.userRepository.create(createUserDto);
     return await this.userRepository.save(_data);
   }
