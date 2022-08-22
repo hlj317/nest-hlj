@@ -7,8 +7,8 @@ import { RedisCacheModule } from '../cache/redisCache.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([User])
-    // RedisCacheModule
+    TypeOrmModule.forFeature([User]),
+    RedisCacheModule
   ],
   controllers: [UserController],
   providers: [UserService],
