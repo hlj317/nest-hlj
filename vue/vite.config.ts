@@ -4,8 +4,8 @@ import vue from "@vitejs/plugin-vue";
 import path from "path";
 import glob from "glob";
 import fs from "fs";
-import viteCompression from "vite-plugin-compression";
-import viteImagemin from "vite-plugin-imagemin";
+// import viteCompression from "vite-plugin-compression";
+// import viteImagemin from "vite-plugin-imagemin";
 import legacy from "@vitejs/plugin-legacy";
 const isProd = process.env.VITE_PROJECT_ENV === "prod";
 const pageEntry = {};
@@ -67,37 +67,37 @@ const plugins = [
 ];
 
 // 生产进行图片压缩
-if (isProd) {
-  plugins.push(
-    viteImagemin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false
-      },
-      optipng: {
-        optimizationLevel: 7
-      },
-      mozjpeg: {
-        quality: 20
-      },
-      pngquant: {
-        quality: [0.8, 0.9],
-        speed: 4
-      },
-      svgo: {
-        plugins: [
-          {
-            name: "removeViewBox"
-          },
-          {
-            name: "removeEmptyAttrs",
-            active: false
-          }
-        ]
-      }
-    })
-  );
-}
+// if (isProd) {
+//   plugins.push(
+//     viteImagemin({
+//       gifsicle: {
+//         optimizationLevel: 7,
+//         interlaced: false
+//       },
+//       optipng: {
+//         optimizationLevel: 7
+//       },
+//       mozjpeg: {
+//         quality: 20
+//       },
+//       pngquant: {
+//         quality: [0.8, 0.9],
+//         speed: 4
+//       },
+//       svgo: {
+//         plugins: [
+//           {
+//             name: "removeViewBox"
+//           },
+//           {
+//             name: "removeEmptyAttrs",
+//             active: false
+//           }
+//         ]
+//       }
+//     })
+//   );
+// }
 
 export default defineConfig({
   server: {
