@@ -6,13 +6,15 @@ import { ConfigModule } from './config/config.module';
 import { FeatureModule } from './feature/feature.module';
 import { AuthenticationMiddleware } from "./middleware/authentication.middleware";
 import { DatabaseModule } from './database/database.module';
+import { HomeModule } from './home/home.module';
 
 @Module({
   imports: [
     NotesModule,
     ConfigModule,
     FeatureModule,
-    DatabaseModule
+    DatabaseModule,
+    HomeModule
   ],
   controllers: [AppController],
   providers: [AppService],
