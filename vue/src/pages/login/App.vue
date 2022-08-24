@@ -9,7 +9,6 @@
 
 <script lang="ts">
 import { Vue, Options, prop } from "vue-class-component";
-import api from "@/api";
 class Props {
   public list = prop<number>({ default: 0 });
 }
@@ -25,7 +24,6 @@ export default class Cla extends Vue.with(Props) {
   balance: string = "0.00";
 
   created() {
-    console.log(api.name);
     console.log("created");
     setTimeout(() => {
       this.balance = "123";
