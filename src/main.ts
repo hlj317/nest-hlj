@@ -25,6 +25,8 @@ async function bootstrap() {
   }else{
     app.setBaseViewsDir(join(rootDir, '../vue/dist/pages'));
   }
+  //开启跨域
+  app.enableCors();
   await app.listen(3000);
 }
 bootstrap();

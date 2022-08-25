@@ -1,46 +1,47 @@
 <!-- @format -->
 <template>
-  <div>
-    1233
-    <div>{{ balance }} {{ balance1 }}</div>
-    <img src="@/assets/bg.png" alt="" />
-  </div>
+<div class="wrapper">
+    <div class="user">
+        <span>用户名</span>
+        <input type="text" v-model="username" />
+    </div>
+    <div class="password">
+        <span>密码</span>
+        <input type="password" v-model="password" />
+    </div>
+    <div class="register-btn">
+        <button @click="registerBtn()">注册</button>
+    </div>
+</div>
 </template>
 
 <script lang="ts">
 import { Vue, Options, prop } from "vue-class-component";
-class Props {
-  public list = prop<number>({ default: 0 });
-}
-@Options({
-  components: {},
-  watch: {
-    balance: function (val) {
-      console.log("watch");
+import { ref, watch, reactive,onMounted } from "vue";
+import { apiGetUserInfo } from '@/api/user.ts'
+
+export default {
+    setup () {
+        let username=ref();
+        let password=ref();
+        let registerBtn = ()=>{
+            const param = {
+                name:username.value,
+                password:password.value,
+                sex:1
+            }
+            apiGetUserInfo(param).then((res:any) => {
+                if (res && res.name) {
+                    alert("注册成功");
+                }
+            })
+        }
+        return {
+            username,
+            password,
+            registerBtn
+        }
     }
-  }
-})
-export default class Cla extends Vue.with(Props) {
-  balance: string = "0.00";
-
-  created() {
-    console.log("created");
-    setTimeout(() => {
-      this.balance = "123";
-    }, 1000);
-    this.$nextTick(() => {
-      console.log("nextTick");
-    });
-    // this.$emit("close");
-  }
-
-  get balance1() {
-    return this.balance + "aaaaa";
-  }
-
-  mounted() {
-    console.log("mounted");
-  }
 }
 </script>
 
