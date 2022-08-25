@@ -6,7 +6,7 @@ export class AuthController {
     constructor(private readonly authService: AuthService) {}
 
     @Get('/register')
-    @Render("auth/register")
+    @Render("login")
     async registerView() {
         return { pageTitle: 'Hello world!12322211' };
     }
